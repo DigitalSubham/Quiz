@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": ["Paris", "London", "Berlin", "Madrid"],
+    "answer": "Paris"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Venus", "Jupiter"],
+    "answer": "Mars"
+  },
+  {
+    "question": "Who wrote 'To Kill a Mockingbird'?",
+    "options": [
+      "Harper Lee",
+      "F. Scott Fitzgerald",
+      "Ernest Hemingway",
+      "Mark Twain"
+    ],
+    "answer": "Harper Lee"
+  },
+  {
+    "question": "What is the chemical symbol for water?",
+    "options": ["H2O", "CO2", "NaCl", "O2"],
+    "answer": "H2O"
+  },
+  {
+    "question": "Which country is the largest by land area?",
+    "options": ["Russia", "China", "USA", "Canada"],
+    "answer": "Russia"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "options": [
+      "Leonardo da Vinci",
+      "Vincent van Gogh",
+      "Pablo Picasso",
+      "Michelangelo"
+    ],
+    "answer": "Leonardo da Vinci"
+  },
+  {
+    "question": "What is the tallest mammal?",
+    "options": ["Giraffe", "Elephant", "Kangaroo", "Rhino"],
+    "answer": "Giraffe"
+  },
+  {
+    "question": "Which of the following is not a primary color?",
+    "options": ["Green", "Blue", "Red", "Yellow"],
+    "answer": "Green"
+  },
+  {
+    "question": "Who discovered penicillin?",
+    "options": [
+      "Alexander Fleming",
+      "Albert Einstein",
+      "Marie Curie",
+      "Isaac Newton"
+    ],
+    "answer": "Alexander Fleming"
+  },
+  {
+    "question": "Which ocean is the largest?",
+    "options": [
+      "Pacific Ocean",
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Arctic Ocean"
+    ],
+    "answer": "Pacific Ocean"
+  }
+]
