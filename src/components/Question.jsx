@@ -24,18 +24,25 @@ const Question = () => {
             >
               {each.question}
             </div>
-            {toggle && <Accordian question={each.question} option={null} />}
+            {toggle && (
+              <Accordian question={each.question} option={null} index={index} />
+            )}
             {each.options.map((option, optionIndex) => (
-              <div>
+              <div key={optionIndex}>
                 <div
                   className="border border-gray-200 bg-black text-white rounded-lg mb-4 list-none text-[20px] p-2"
-                  key={optionIndex}
                   onClick={() => setToggle(!toggle)}
                 >
                   option {optionIndex + 1}: {"  "}
                   {option}
                 </div>
-                {toggle && <Accordian question={null} option={option} />}
+                {toggle && (
+                  <Accordian
+                    question={null}
+                    option={option}
+                    index={optionIndex}
+                  />
+                )}
               </div>
             ))}
           </div>

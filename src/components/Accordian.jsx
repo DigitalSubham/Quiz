@@ -1,25 +1,15 @@
 import React, { useState } from "react";
 import { FaBold, FaItalic, FaUnderline, FaImage } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { updateQuestion, updateOptions } from "../state/QuestionSlice";
 
-const Accordian = ({ question, option }) => {
+const Accordian = ({ question, option, index }) => {
+  const [inputValue, setInputValue] = useState(question ? question : option);
   const [ques, setQues] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
+  const dispatch = useDispatch();
+  // console.log("index", index);
 
-  const handleBold = () => {
-    setQues(ques + "<b></b>"); // Wrap selected text in <b> tags
-  };
-
-  // Function to handle adding italic text
-  const handleItalic = () => {
-    setQues(ques + "<i></i>"); // Wrap selected text in <i> tags
-  };
-
-  // Function to handle adding underline text
-  const handleUnderline = () => {
-    setQues(ques + "<u></u>"); // Wrap selected text in <u> tags
-  };
-
-  // Function to handle adding an image from local
   const handleAddImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -29,6 +19,18 @@ const Accordian = ({ question, option }) => {
         setImagePreview(reader.result); // Set image preview
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+
+    // Dispatch the corresponding action based on whether it's a question or an option
+    if (question) {
+      dispatch(updateQuestion({ index: index, questionData: newValue }));
+    } else {
+      dispatch(updateOptions({ index: index, optionsData: newValue }));
     }
   };
 
@@ -47,22 +49,9 @@ const Accordian = ({ question, option }) => {
       </div>
       <div className="flex flex-col mb-2 w-full">
         <div className="flex justify-start items-start gap-2 ml-3 mb-2">
-          {" "}
-          <FaBold
-            size={18}
-            className="text-white cursor-pointer"
-            onClick={handleBold}
-          />
-          <FaItalic
-            size={18}
-            className="text-white cursor-pointer"
-            onClick={handleItalic}
-          />
-          <FaUnderline
-            size={18}
-            className="text-white cursor-pointer"
-            onClick={handleUnderline}
-          />
+          <FaBold size={18} className="text-white cursor-pointer" />
+          <FaItalic size={18} className="text-white cursor-pointer" />
+          <FaUnderline size={18} className="text-white cursor-pointer" />
           <label htmlFor="file-upload">
             <FaImage size={20} className="text-white cursor-pointer" />
           </label>
@@ -76,8 +65,8 @@ const Accordian = ({ question, option }) => {
 
         <input
           className="w-full h-14 bg-red-700 shadow-lg rounded-md p-2 mr-2"
-          value={question ? question : option}
-          onChange={(e) => setQues(e.target.value)}
+          value={inputValue}
+          onChange={handleInputChange}
         />
       </div>
     </div>
